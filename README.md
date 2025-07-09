@@ -1,14 +1,12 @@
 # Quantitative Metrics
-
-Portfolio analysis on Quantitative Metrics (Sharpe, Alpha, Beta) for Q1-Q2 2025 with 29 stocks.
+Portfolio analysis on Quantitative Metrics (Sharpe, Alpha, Beta) for 1Y, 2Y, 3Y and quarterly performance with 29 stocks.
 
 ## Files
-
 **Sharpe Ratios:**
 - `sharpe_ratio_calculator.py` - quarterly sharpe + market bottom performance for entire portfolio
 
 **Alpha Analysis:**
-- `alpha_calculator.py` - vs SP500
+- `portfolio_alpha_analysis.py` - comprehensive alpha analysis vs S&P 500 for individual stocks and portfolio
 
 **Beta Analysis:**  
 - `beta_calculator.py` - 2Y volatility vs market
@@ -21,21 +19,42 @@ Portfolio analysis on Quantitative Metrics (Sharpe, Alpha, Beta) for Q1-Q2 2025 
 - **SP500 Q1-Q2:** 0.11 (Outperformed Portfolio in 1H)
 
 ### Portfolio Performance
-- **Q1 2025:** -7.08%
-- **Q2 2025:** 6.84%  
-- **Since Market Bottom:** 28.91%
-- **Risk-Free Rate:** 4.42% 3 Month Treasury Bill
+- **YTD 2025:** 5.92%
+- **Q1 2025:** -4.77%
+- **Q2 2025:** 10.99%  
+- **Market (S&P 500) YTD:** 6.38%
+- **Risk-Free Rate:** 4.42% (3 Month Treasury Bill)
 
-### Alpha Analysis (Q1-Q2 avg vs SP500)
-Best performers:
-- GRAL: 37.85%
-- KLAC: 13.55%
-- META: 8.05%
+### Alpha Analysis
 
-Worst performers:
-- UNH: -33.80%
-- ILMN: -27.90%
-- UIS: -21.65%
+#### Portfolio Alpha Summary
+- **YTD Portfolio Alpha:** -0.46%
+- **Latest Quarter (Q2 2025) Alpha:** 0.83%
+- **Trailing 4-Quarter Average Alpha:** -0.35%
+- **Trailing 2-Quarter Average Alpha:** 0.22%
+
+#### Individual Stock Alpha (1Y)
+**Best performers:**
+- IDCC: 77.16%
+- GILD: 59.76%
+- WFC: 28.03%
+- META: 27.14%
+- NOK: 23.47%
+
+**Worst performers:**
+- NVO: -61.53%
+- REGN: -59.95%
+- UNH: -49.78%
+- AMD: -33.87%
+- AMAT: -33.64%
+
+#### Individual Stock Alpha (2Y)
+**Best performers:**
+- IDCC: 127.09%
+- DELL: 95.54%
+- KLAC: 58.65%
+- META: 109.67%
+- WFC: 62.34%
 
 ### 2-Year Beta (Pulled from YFinance)
 Highest volatility:
@@ -52,36 +71,24 @@ Market-like:
 - WFC: 1.02
 - TXN: 1.04
 
-## CSV Files 
+## CSV Files Generated
 
-**Alpha:**
-- `alpha_sorted_by_performance.csv`
-- `alpha_original_order.csv`
-- `alpha_market_bottom_sorted.csv`
-- `alpha_market_bottom_original.csv`
+**Alpha Analysis:**
+- `alpha_comprehensive_analysis.csv` - all data for all periods
+- `alpha_sorted_by_1y.csv` - stocks ranked by 1Y alpha
+- `alpha_sorted_by_2y.csv` - stocks ranked by 2Y alpha
+- `alpha_sorted_by_3y.csv` - stocks ranked by 3Y alpha
+- `portfolio_original_order_alpha.csv` - complete data in original portfolio order with company names
+- `alpha_summary_original_order.csv` - simplified alpha summary in original order
+- `quarterly_portfolio_alpha.csv` - quarterly portfolio performance
+- `portfolio_summary.csv` - key portfolio metrics summary
 
 **Beta:**
 - `beta_2year_sorted_by_value.csv`
 - `beta_2year_original_order.csv`
 
-## Key Insights
-
-1. **Recovery was strong** - portfolio sharpe went from -0.12 to 2.82 since market bottom
-2. **High beta portfolio** - lots of volatile tech stocks
-3. **Some defensive positions** - negative beta stocks like healthcare/energy
 
 ## Usage
-
-To run, run each file independently:
+To run the analysis:
 ```python
-python sharpe_ratio_calculator.py
-python alpha_calculator.py  
-python beta_calculator.py
-```
-
-All generate dataframes and save CSV files automatically.
-
-## Portfolio Holdings (29 stocks)
-META, REGN, FI, GILD, MITK, FIS, IDCC, COUR, AMAT, KLAC, NICE, WFC, AMD, LLY, NVO, DELL, BP, NOK, RMBS, EL, UIS, ILMN, GOOG, SNPS, GRAL, UNH, GNRC, TXN, ROK
-
-Total portfolio weight: concentrated in top holdings with META at 13.94%
+python portfolio_alpha_analysis.py
